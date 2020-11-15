@@ -4,15 +4,12 @@ import Colecao from '../../views/Colecao/Colecao';
 import Item from '../../views/Item/Item';
 import { MaterialIcons } from '@expo/vector-icons';
 import RotasDrawer from '../rotasDrawer/RotasDrawer';
-
 const Tab = createBottomTabNavigator();
-
 const icones = {
   Inicial: { name: 'home' },
   Colecao: { name: 'storage' },
   Item: { name: 'done-all' }, 
 }
-
 const RotasTab = () => {
   return (
     <Tab.Navigator
@@ -38,6 +35,7 @@ const RotasTab = () => {
           unmountOnBlur: true,
         }}
       />
+
       <Tab.Screen 
         name="Colecao" 
         component={Colecao} 
@@ -45,9 +43,7 @@ const RotasTab = () => {
           unmountOnBlur: true,
         }}
       />      
-      <Tab.Screen name="Item" component={Item} />
+      <Tab.Screen name="Item" component={Item}  initialParams={{item: {}, operacao: 'adicionar'}}/>
     </Tab.Navigator>
-  );
-}
-
+  );}
 export default RotasTab;
